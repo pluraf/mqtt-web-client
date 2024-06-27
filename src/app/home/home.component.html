@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="column left">
+        <table>
+            <thead>
+                <tr>
+                  <th>
+                    Broker Status
+                  </th>
+                  <th>
+                    @if (brokerStat.calcTimestamp != 0) {
+                      @if (brokerStatus) {
+                        <span style="color: green">Online</span>
+                      } @else {
+                        <span style="color: red">Offline</span>
+                      }
+                    }
+                  </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td colspan=2>MQTT Connection Settings</td>
+                </tr>
+                <tr>
+                    <td>Host</td>
+                    <td>{{ brokerHost }}</td>
+                </tr>
+                <tr>
+                    <td>TCP Port</td>
+                    <td>{{ brokerTCPPort }}</td>
+                </tr>
+                <tr>
+                    <td>WebSocket Port</td>
+                    <td>{{ brokerWSPort }}</td>
+                </tr>
+                <tr>
+                    <td>TLS TCP Port</td>
+                    <td>{{ brokerTLSPort }}</td>
+                </tr>
+                <tr>
+                    <td>TLS Websocket Port</td>
+                    <td>{{ brokerWSSPort }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="column right center-align">
+        <h4 style="left: 120pt; top: 15pt; position: relative; display:inline">Free</h4>
+        <h1>Public MQTT Broker</h1>
+        <h3>Powered by <a href="https://vernemq.com/">VerneMQ</a></h3>
+    </div>
+    <div class="row">
+        <div class="boxes-container">
+            <div class="box">
+                <div class="box-section-1">Clients online:</div>
+                <div class="box-section-2">{{ brokerStat.clientsOnline }}</div>
+            </div>
+            <div class="box">
+                <div class="box-section-1">Clients offline:</div>
+                <div class="box-section-2">{{ brokerStat.clientsOffline }}</div>
+            </div>
+            <div class="box">
+                <div class="box-section-1">Subscribtions:</div>
+                <div class="box-section-2">{{ brokerStat.subscriptions }}</div>
+            </div>
+            <div class="box">
+                <div class="box-section-1">Incoming (msg/sec):</div>
+                <div class="box-section-2">{{ brokerStat.incomingRate }}</div>
+            </div>
+            <div class="box">
+                <div class="box-section-1">Outgoing (msg/sec):</div>
+                <div class="box-section-2">{{ brokerStat.outgoingRate }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <h2>Description</h2>
+        <p>
+We host a publicly available <a href="https://vernemq.com/">VerneMQ</a> MQTT broker. <a href="https://mqtt.org/">MQTT</a> is a very lightweight protocol that uses a publish/subscribe model. This makes it suitable for "machine to machine" messaging such as with low power sensors or mobile devices.
+        </p>
+        <p>
+Testing and usage is for free but please do not use it for sensitive information because everybody is allowed to subscribe to every topic, including wildcard.
+        </p>
+        <p>
+Please consider to add a reconnect logic to your client because we may update the underlying VerneMQ instance at any time, so we cannot promise 100% uptime.
+        </p>
+    </div>
+</div>
