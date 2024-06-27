@@ -28,7 +28,7 @@ export class AppComponent {
   brokerStatus = false;
   brokerTCPPort = "";
   brokerTLSPort = "n/a";
-  brokerWSPort = "n/a";
+  brokerWSPort = "";
   brokerWSSPort = "n/a";
   brokerHost = window.location.hostname;
   brokerStat: BrokerStat = new BrokerStat();
@@ -93,6 +93,8 @@ export class AppComponent {
     obj["listeners"].forEach((value: any) => {
       if (value["type"] == "mqtt") {
         this.brokerTCPPort = value["port"];
+      } else if (value["type"] == "mqttws") {
+        this.brokerWSPort = value["port"];
       }
     });
   }
