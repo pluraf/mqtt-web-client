@@ -1,0 +1,16 @@
+<div class="messages-container">
+    <div class="message">
+        <p>Messages</p>
+    </div>
+    <div class="filter">
+        <p>Filter:
+            <a href="#" onclick="setFilter('All')"><strong>All</strong></a>
+            <a href="#" onclick="setFilter('Received')">Received</a>
+            <a href="#" onclick="setFilter('Published')">Published</a>
+        </p>
+    </div>
+</div>
+<div class="messages">
+    <textarea rows="15" cols="100" pInputTextarea [(ngModel)]="topic">
+</textarea>
+</div>

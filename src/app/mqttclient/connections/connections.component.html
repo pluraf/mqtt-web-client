@@ -1,0 +1,20 @@
+<div class="new-connection new-subscription">
+    <button pButton type="button" label="New Connection" (click)="addConnection()"></button>
+    <button pButton type="button" label="New Subscription" (click)="addSubscription()"></button>
+</div>
+<div class="container">
+    <div class="connection-sec" *ngFor="let connection of connections">
+        <div class="connection">
+            <span class="conn">{{ connection.name }}</span>
+            <button pButton type="button" (click)="addConnection()">Edit</button>
+            <button pButton type="button" (click)="deleteConnection(connection)">Del</button>
+        </div>
+        <div *ngFor="let subscription of connection.subscriptions" class="subscription ">
+            <p-checkbox name="group2" value="subscription" [value]="subscription" class="chkbox"
+                [(ngModel)]="subscription.enabled"></p-checkbox>
+            <span>{{ subscription.name }}</span>
+            <button pButton type="button" (click)="editSubscription(subscription)">Edit</button>
+            <button pButton type="button" (click)="deleteSubscription(subscription)">Del</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+.container {
+    margin: 40px;
+}
+
+.colmessage {
+    margin-left: 30px;
+}
+
+p-splitter {
+    border: black solid 1px;
+}
+
+p-splitter .connection-info {
+    border: none
+}
+
+.colm1 {
+    border: black solid 1px
+}

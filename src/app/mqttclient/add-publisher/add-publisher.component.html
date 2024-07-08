@@ -1,0 +1,43 @@
+<div class="main-container">
+    <p-splitter [panelSizes]="[25, 75]" [style]="{ height: '1000px' }">
+        <ng-template pTemplate>
+            <div class="col">
+                <div class="new-connection new-subscription">
+                    <button pButton type="button" label="New Connection" class="btn-connection"
+                        (click)="addConnection()"></button>
+                    <button pButton type="button" label="New Subscription" class="btn-connection"
+                        (click)="addSubscription()"></button>
+                </div>
+                <div class="container">
+                    <div class="connection-sec" *ngFor="let connection of connections">
+                        <div class="connection">
+                            <span class="conn">{{ connection.name }}</span>
+
+                        </div>
+                        <div *ngFor="let subscription of connection.subscriptions" class="subscription ">
+                            <p-checkbox name="group2" value="subscription" [value]="subscription" class="chkbox"
+                                [(ngModel)]="subscription.enabled"></p-checkbox>
+                            <span>{{ subscription.name }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate>
+            <div class="colmessage col flex ">
+                <p-splitter class="connection-info" layout="vertical">
+                    <ng-template pTemplate>
+                        <div class="col colmess flex ">
+                            <app-messages></app-messages>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate>
+                        <div class="col flex ">
+                            <app-publish></app-publish>
+                        </div>
+                    </ng-template>
+                </p-splitter>
+            </div>
+        </ng-template>
+    </p-splitter>
+</div>

@@ -1,0 +1,71 @@
+button {
+    background-color: #F4F4F4;
+    color: black;
+    margin-right: 15px;
+    border-color: black;
+    height: 30px;
+    border-radius: 0
+}
+
+.new-tab-btn {
+    position: absolute;
+    left: 20px;
+    top: 13px;
+    min-width: 45px;
+    height: 45px;
+    font-size: 30px;
+    background-color: #F6FA2C;
+    ;
+}
+
+.edit-btn,
+.delete-btn {
+    background-color: black;
+    color: white;
+}
+
+.publish-btn {
+    background-color: #1CA4F1;
+}
+
+.publish-sec {
+    border: black solid 1px;
+
+}
+
+.controll-wrap {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.controll-wrap input[type=text] {
+    flex: 1;
+    margin-left: 10px;
+    margin-right: 50px;
+    height: 30px;
+
+}
+
+
+.qos-btn {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    margin: 10px
+}
+
+:host {
+    ::ng-deep .p-tabview-nav {
+        margin-left: 100px;
+    }
+}
+
+.tabs {
+    position: relative;
+}

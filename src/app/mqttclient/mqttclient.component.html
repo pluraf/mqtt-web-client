@@ -1,1 +1,25 @@
-<p>mqttclient works!</p>
+<div class="container flex align-items-center justify-content-center">
+    <p-splitter [panelSizes]="[25, 75]" [style]="{ height: '1000px' }">
+        <ng-template class="colm1" pTemplate>
+            <div class="col flex">
+                <app-connections></app-connections>
+            </div>
+        </ng-template>
+        <ng-template pTemplate>
+            <div class="colmessage col flex ">
+                <p-splitter class="connection-info" layout="vertical">
+                    <ng-template pTemplate>
+                        <div class="col colmess flex ">
+                            <app-messages></app-messages>
+                        </div>
+                    </ng-template>
+                    <ng-template pTemplate>
+                        <div class="col flex ">
+                            <app-publish></app-publish>
+                        </div>
+                    </ng-template>
+                </p-splitter>
+            </div>
+        </ng-template>
+    </p-splitter>
+</div>

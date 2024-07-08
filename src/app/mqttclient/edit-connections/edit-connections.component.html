@@ -1,0 +1,51 @@
+<div class="main-container">
+    <p-splitter [panelSizes]="[25, 75]" [style]="{ height: '1000px' }">
+        <ng-template pTemplate>
+            <div class="col">
+                <div class="new-connection new-subscription">
+                    <button pButton type="button" label="New Connection" class="btn-connection"
+                        (click)="addConnection()"></button>
+                    <button pButton type="button" label="New Subscription" class="btn-connection"
+                        (click)="addSubscription()"></button>
+                </div>
+                <div class="container">
+                    <div class="connection-sec" *ngFor="let connection of connections">
+                        <div class="connection">
+                            <span class="conn">{{ connection.name }}</span>
+
+                        </div>
+                        <div *ngFor="let subscription of connection.subscriptions" class="subscription ">
+                            <p-checkbox name="group2" value="subscription" [value]="subscription" class="chkbox"
+                                [(ngModel)]="subscription.enabled"></p-checkbox>
+                            <span>{{ subscription.name }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate>
+            <div class="col">
+                <div class="setting-container">
+                    <div class="sub-setting">
+                        <p>Connection 1 setting</p>
+                    </div>
+                    <div class="submit-btns">
+                        <button class="back-btn" pButton type="button" label="Back" (click)="addConnection()"></button>
+                        <button class="save-btn" pButton type="button" label="Save"
+                            (click)="addSubscription()"></button>
+                    </div>
+                </div>
+                <div *ngFor="let section of sections" class="section">
+                    <div class="section-title">{{ section.title }} --------------------------------------------</div>
+                    <div class="input-container">
+                        <div class="input-row" *ngFor="let row of [0, 1]">
+                            <input type="text" pInputText [(ngModel)]="section.inputs[row * 2].model" />
+                            <input type="text" pInputText [(ngModel)]="section.inputs[row * 2 + 1].model" />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </ng-template>
+    </p-splitter>
+</div>
