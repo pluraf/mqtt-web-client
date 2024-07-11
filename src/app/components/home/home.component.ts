@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {BrokerStat} from "../app.component";
+import { BrokerStat } from "../../app.component";
 
 @Component({
   selector: 'app-home',

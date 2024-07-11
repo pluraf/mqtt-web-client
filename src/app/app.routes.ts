@@ -1,10 +1,11 @@
 import { Routes } from '@angular/router';
-
-import { MQTTClientComponent } from "./mqttclient/mqttclient.component";
-import { HomeComponent } from "./home/home.component";
-import { EditConnectionsComponent } from './mqttclient/edit-connections/edit-connections.component';
-import { EditSubscriptionComponent } from './mqttclient/edit-subscription/edit-subscription.component';
-import { AddPublisherComponent } from './mqttclient/add-publisher/add-publisher.component';
+import { MQTTClientComponent } from "./components/mqttclient/mqttclient.component";
+import { HomeComponent } from "./components/home/home.component";
+import { EditConnectionsComponent } from './components/mqttclient/edit-connections/edit-connections.component';
+import { EditSubscriptionComponent } from './components/mqttclient/edit-subscription/edit-subscription.component';
+import { AddPublisherComponent } from './components/mqttclient/add-publisher/add-publisher.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,4 +15,6 @@ export const routes: Routes = [
   { path: 'edit', component: EditConnectionsComponent },
   { path: 'edit-sub', component: EditSubscriptionComponent },
   { path: 'edit-publisher', component: AddPublisherComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
 ];
