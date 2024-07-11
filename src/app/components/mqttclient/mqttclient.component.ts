@@ -2,12 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IMqttMessage } from "ngx-mqtt";
 import { MqtteventsService } from '../../services/mqttevents.service';
-import { IMqttServiceOptions } from "ngx-mqtt";
+import { CommonModule } from '@angular/common';
+import { MqttConfigModule } from '../../mqttconfig/mqttconfig.module';
+
+
 
 @Component({
   selector: 'app-mqttclient',
   standalone: true,
-  imports: [],
+  imports: [CommonModule,
+    MqttConfigModule],
   templateUrl: './mqttclient.component.html',
   styleUrl: './mqttclient.component.css',
   providers: [MqtteventsService]
@@ -18,12 +22,7 @@ export class MQTTClientComponent implements OnInit {
   private deviceId: string = "123456";
   subscription!: Subscription;
 
-  MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
-    hostname: 'broker.emqx.io',
-    port: 1883,
-    protocol: "wss",
-    path: '',
-  };
+
   constructor(
     private mqttEvent: MqtteventsService,
   ) {
