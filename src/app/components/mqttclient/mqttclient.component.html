@@ -1,5 +1,26 @@
-<div>
-    <h1>MQTT Client</h1>
-  
-  </div>
-  
+<div class="container flex align-items-center justify-content-center">
+  <p-splitter [panelSizes]="[28, 72]" [style]="{ height: '1000px' }">
+      <ng-template  pTemplate>
+          <div class="col flex">
+              <app-connections (changeComponent)="onComponentChange($event)"></app-connections>
+          </div>
+      </ng-template>
+      <ng-template pTemplate>
+          <div class=" col flex ">
+            <app-settings *ngIf="changeComponent" ></app-settings>
+          </div>
+              <p-splitter *ngIf="!changeComponent"  class="connection-info" layout="vertical">
+                  <ng-template pTemplate>
+                      <div class="col flex ">                        
+                          <app-messages></app-messages>                         
+                      </div>
+                  </ng-template>
+                  <ng-template pTemplate>
+                      <div class="col flex ">
+                          <app-publish> </app-publish>
+                      </div>
+                  </ng-template>
+              </p-splitter>          
+      </ng-template>
+  </p-splitter>
+</div>

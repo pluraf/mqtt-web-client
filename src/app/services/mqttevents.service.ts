@@ -6,7 +6,7 @@ import { Observable } from "rxjs";
   providedIn: 'root'
 })
 export class MqtteventsService {
-  private endpoint: string = 'events';;
+  private endpoint: string = 'events';
 
   constructor(
     private _mqttService: MqttService,

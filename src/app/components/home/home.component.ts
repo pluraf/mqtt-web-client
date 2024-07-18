@@ -32,19 +32,20 @@ export class HomeComponent {
     }).catch(error => {
       this.brokerStatus = false;
     });
-    this.statFetcherId = setInterval(() => {
-      fetch(url).then(response => {
-        if (response.ok) {
-          response.json().then(data => {
-            this.parseBrokerStatus(data);
-          });
-        } else {
-          this.brokerStatus = false;
-        }
-      }).catch(error => {
-        this.brokerStatus = false;
-      });
-    }, 1000);
+    /* this.statFetcherId = setInterval(() => {
+       fetch(url).then(response => {
+         if (response.ok) {
+           response.json().then(data => {
+             this.parseBrokerStatus(data);
+           });
+         } else {
+           this.brokerStatus = false;
+         }
+       }).catch(error => {
+         this.brokerStatus = false;
+       });
+     }, 1000);
+     */
   }
 
   parseBrokerStatus(data: any, init: boolean = false) {

@@ -1,5 +1,6 @@
 .container {
     margin: 40px;
+    
 }
 
 .colmessage {
@@ -8,12 +9,11 @@
 
 p-splitter {
     border: black solid 1px;
+    
 }
 
 p-splitter .connection-info {
-    border: none
+    border: none;
+  
 }
 
-.colm1 {
-    border: black solid 1px
-}

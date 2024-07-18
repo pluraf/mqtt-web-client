@@ -15,7 +15,6 @@ button {
     height: 45px;
     font-size: 30px;
     background-color: #F6FA2C;
-    ;
 }
 
 .edit-btn,
@@ -30,7 +29,6 @@ button {
 
 .publish-sec {
     border: black solid 1px;
-
 }
 
 .controll-wrap {
@@ -47,13 +45,27 @@ button {
     margin-left: 10px;
     margin-right: 50px;
     height: 30px;
-
 }
-
 
 .qos-btn {
     margin-left: 10px;
     margin-bottom: 10px;
+}
+
+:host {
+    ::ng-deep .p-dropdown {
+        margin-right: 15px;
+        border-color: black;
+        height: 30px;
+        border-radius: 0;
+    }
+}
+
+:host {
+    ::ng-deep .p-dropdown .p-dropdown-label {
+        line-height: .2rem;
+        color: black
+    }
 }
 
 textarea {

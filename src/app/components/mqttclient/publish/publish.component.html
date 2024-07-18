@@ -1,23 +1,25 @@
 <p>Publish</p>
 <div class="tabs flex ">
-    <button class="new-tab-btn p-button-text" (click)="addPublisher()">+</button>
+    <button class="new-tab-btn p-button-text">+</button>
     <p-tabView [(activeIndex)]="activeIndex" [scrollable]="true">
         <p-tabPanel class="tabs-content" *ngFor="let tab of scrollableTabs" [header]="tab.title">
             <div class="publish-sec">
                 <div class="controll-wrap">
                     <label>Topic:</label>
-                    <input type="text" pInputText [(ngModel)]="topic" />
+                    <input type="text" *ngIf="publish" pInputText [(ngModel)]="showTopic" />
                     <div>
                         <button pButton pRipple class="p-button-success delete-btn">Delete</button>
                         <button pButton pRipple class="p-button-success edit-btn">Edit</button>
                     </div>
                 </div>
                 <div class="qos-btn">
-                    <button pButton pRipple class="p-button-success">QoS: 1</button>
+                    <!-- <button pButton pRipple class="p-button-success">QoS: 1</button> -->
+                    <p-dropdown class="qos-btn " [options]="qosList" [(ngModel)]="selectedQoS" optionLabel="label"
+                        placeholder="QoS" />
                     <button pButton pRipple class="p-button-success">Retain:</button>
-                    <button pButton pRipple class="p-button-success publish-btn">Publish</button>
+                    <button pButton pRipple class="p-button-success publish-btn"  (click)="doPublish()">Publish</button>
                 </div>
-                <textarea pInputTextarea rows="10" cols="100" class="publish-text"></textarea>
+                <textarea [(ngModel)]="showPublishInfo" pInputTextarea rows="10" cols="100" class="publish-text" ></textarea>
             </div>
 
         </p-tabPanel>

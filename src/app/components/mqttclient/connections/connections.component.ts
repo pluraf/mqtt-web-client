@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { SplitterModule } from 'primeng/splitter';
 import { RouterModule } from '@angular/router';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { SettingsComponent } from '../../../shared/settings/settings.component';
 
 
 interface PublishTab {
@@ -18,7 +19,7 @@ interface PublishTab {
 @Component({
   selector: 'app-connections',
   standalone: true,
-  imports: [CommonModule, FormsModule, ButtonModule, CheckboxModule, SplitterModule, RouterModule],
+  imports: [CommonModule, FormsModule, ButtonModule, CheckboxModule, SplitterModule, RouterModule, SettingsComponent],
   templateUrl: './connections.component.html',
   styleUrl: './connections.component.css'
 })
@@ -32,6 +33,7 @@ export class ConnectionsComponent {
     { name: 'Connection 1', subscriptions: [{ name: 'Subscription 2', enabled: false }, { name: 'Subscription 1', enabled: false }] },
     { name: 'Connection 2', subscriptions: [{ name: 'Subscription 2', enabled: false }, { name: 'Subscription 1', enabled: false }] }
   ];
+  hideButtons: boolean = false;
 
 
   filter = 'All';
@@ -40,13 +42,21 @@ export class ConnectionsComponent {
   setFilter(newFilter: string) {
     this.filter = newFilter;
   }
-  addConnection() {
 
-    this.router.navigateByUrl('edit');
+  @Output() changeComponent = new EventEmitter<boolean>();
+  @Output() changeSetting = new EventEmitter<string>();
+  newConnection() {
+    this.hideButtons = true;
+    this.changeComponent.emit(true);
+    this.changeSetting.emit("Connection 1 Settings");
   }
 
-  addSubscription() {
-    this.router.navigateByUrl('edit-sub');
+  newSubscription() {
+    this.hideButtons = true;
+    this.changeComponent.emit(true);
+    /* const subscription = this.connections[connectionIndex].subscriptions[subscriptionIndex];
+    this.changeSetting.emit(`${subscription.name} Settings`); */
+    this.changeSetting.emit("Subscription 1 Settings")
   }
 
   deleteConnection(connection: any) {

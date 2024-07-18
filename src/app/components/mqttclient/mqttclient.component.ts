@@ -1,49 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { IMqttMessage } from "ngx-mqtt";
-import { MqtteventsService } from '../../services/mqttevents.service';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MqttConfigModule } from '../../mqttconfig/mqttconfig.module';
-
-
+import { SplitterModule } from 'primeng/splitter';
+import { ConnectionsComponent } from './connections/connections.component';
+import { MessagesComponent } from './messages/messages.component';
+import { PublishComponent } from './publish/publish.component';
+import { SettingsComponent } from '../../shared/settings/settings.component';
 
 @Component({
   selector: 'app-mqttclient',
   standalone: true,
-  imports: [CommonModule,
-    MqttConfigModule],
+  imports: [SplitterModule, ConnectionsComponent, MessagesComponent, PublishComponent, SettingsComponent, CommonModule],
   templateUrl: './mqttclient.component.html',
   styleUrl: './mqttclient.component.css',
-  providers: [MqtteventsService]
-
 })
-export class MQTTClientComponent implements OnInit {
-  events!: any[];
-  private deviceId: string = "123456";
-  subscription!: Subscription;
+export class MQTTClientComponent {
+  changeComponent: boolean = false;
 
-
-  constructor(
-    private mqttEvent: MqtteventsService,
-  ) {
-  }
-
-  ngOnInit() {
-    this.subscribeToTopic();
-  }
-
-  ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-  }
-
-  private subscribeToTopic() {
-    console.log(`Subscribing to topic for device ID: ${this.deviceId}`);
-    this.subscription = this.mqttEvent.topic(this.deviceId)
-      .subscribe((data: IMqttMessage) => {
-        let item = JSON.parse(data.payload.toString());
-        this.events.push(item);
-      });
+  onComponentChange(event: boolean) {
+    this.changeComponent = event;
   }
 }

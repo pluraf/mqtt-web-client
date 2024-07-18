@@ -1,0 +1,52 @@
+.setting-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.sub-setting {
+    flex: 1;
+}
+
+.submit-btns {
+    flex: 1;
+    text-align: right;
+   
+}
+
+
+.back-btn {
+    height: 20px;
+    background-color: #1CE4F1;
+    color: black;
+    margin: 4px;
+}
+
+.save-btn {
+    height: 20px;
+    background-color: #1CF18B;
+    color: black;
+    margin: 4px;
+}
+
+.section {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    margin-bottom: 20px;
+}
+
+.input-container {
+    display: inline-block;
+}
+
+input {
+    margin: 20px;
+
+}
+
+.input-row {
+    margin-bottom: 10px;
+}
