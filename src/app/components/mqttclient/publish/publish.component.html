@@ -1,27 +1,44 @@
-<p>Publish</p>
-<div class="tabs flex ">
-    <button class="new-tab-btn p-button-text">+</button>
-    <p-tabView [(activeIndex)]="activeIndex" [scrollable]="true">
-        <p-tabPanel class="tabs-content" *ngFor="let tab of scrollableTabs" [header]="tab.title">
-            <div class="publish-sec">
-                <div class="controll-wrap">
-                    <label>Topic:</label>
-                    <input type="text" *ngIf="publish" pInputText [(ngModel)]="showTopic" />
-                    <div>
-                        <button pButton pRipple class="p-button-success delete-btn">Delete</button>
-                        <button pButton pRipple class="p-button-success edit-btn">Edit</button>
+<div>
+    <p class="ml-3">Publish</p>
+      
+        <button (click)="onClick()" pButton pRipple class="plus-btn p-button-success" >+</button>
+        <div class="tabs ">
+        <p-tabView [(activeIndex)]="activeIndex" [scrollable]="true">
+            <p-tabPanel  *ngIf="hideElements" header="New">              
+            </p-tabPanel>
+            <p-tabPanel class="tabs-content" *ngFor="let tab of scrollableTabs" [header]="tab.title">
+                <div class="publish-sec">
+                    <div class="controll-wrap">
+                        <label>Topic:</label>
+                        <input type="text" *ngIf="publish" pInputText [(ngModel)]="showTopic" />
+                        <div>
+                            <button pButton pRipple *ngIf="!hideElements"
+                                class="p-button-success delete-btn">Delete</button>
+                            <button pButton pRipple *ngIf="!hideElements" class="p-button-success edit-btn">Edit</button>
+                            <button pButton *ngIf="hideElements" pRipple class="p-button-success edit-btn">Save</button>
+                        </div>
                     </div>
+                    <div class="tab-name" *ngIf="hideElements">
+                        <label>Tab Name:</label>
+                        <input type="text" pInputText [(ngModel)]="showTopic" />
+                    </div>
+                    <div class="connection-list" *ngIf="hideElements">
+                        <p>Connection:</p>
+                        <p-dropdown class="custom-dd" [options]="connectionList" [(ngModel)]="selectedConnection" optionLabel="label"
+                            placeholder="" />
+                    </div>
+                    <div class="qos-btn">
+                        <label *ngIf="hideElements">Default:</label>
+                        <p-dropdown class="qos-btn " [options]="qosList" [(ngModel)]="selectedQoS" optionLabel="label"
+                            placeholder="QoS" />
+                        <button pButton pRipple class="p-button-success">Retain:</button>
+                        <button pButton pRipple class="p-button-success publish-btn" (click)="doPublish()">Publish</button>
+                    </div>
+                    <textarea *ngIf="!hideElements" [(ngModel)]="showPublishInfo" pInputTextarea rows="10" cols="100"
+                        class="publish-text"></textarea>
                 </div>
-                <div class="qos-btn">
-                    <!-- <button pButton pRipple class="p-button-success">QoS: 1</button> -->
-                    <p-dropdown class="qos-btn " [options]="qosList" [(ngModel)]="selectedQoS" optionLabel="label"
-                        placeholder="QoS" />
-                    <button pButton pRipple class="p-button-success">Retain:</button>
-                    <button pButton pRipple class="p-button-success publish-btn"  (click)="doPublish()">Publish</button>
-                </div>
-                <textarea [(ngModel)]="showPublishInfo" pInputTextarea rows="10" cols="100" class="publish-text" ></textarea>
-            </div>
 
-        </p-tabPanel>
-    </p-tabView>
+            </p-tabPanel>
+        </p-tabView>
+    </div>
 </div>

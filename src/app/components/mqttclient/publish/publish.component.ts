@@ -6,7 +6,6 @@ import { TabViewModule } from 'primeng/tabview';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { ViewEncapsulation } from '@angular/core';
 import { DropdownModule } from 'primeng/dropdown';
 
 import { Injector } from '@angular/core';
@@ -16,7 +15,6 @@ import {
   MqttService,
   IPublishOptions,
 } from 'ngx-mqtt';
-//import { IClientSubscribeOptions } from 'mqtt-browser;
 import { Subscription } from 'rxjs';
 import { MqttConfigModule } from '../../../mqttconfig/mqttconfig.module';
 
@@ -24,7 +22,10 @@ interface QoSList {
   label: string;
   value: number;
 }
-
+interface ConnectionList {
+  label: string;
+  value: number;
+}
 @Component({
   selector: 'app-publish',
   standalone: true,
@@ -40,7 +41,14 @@ export class PublishComponent implements OnInit {
   selectedQoS: QoSList | undefined;
   showPublishInfo: string = "";
   showTopic: string = "";
+  connectionList: ConnectionList[] | undefined;
+  selectedConnection: ConnectionList | undefined;
+  hideElements: boolean = false;
 
+  onClick(): void {
+    console.log('Button clicked');
+    this.hideElements = true;
+  }
 
   ngOnInit() {
     this.qosList = [
@@ -48,7 +56,10 @@ export class PublishComponent implements OnInit {
       { label: "QoS: 1", value: 1 },
       { label: "QoS: 2", value: 2 },
     ];
-
+    this.connectionList = [
+      { label: "Connection 1", value: 0 },
+      { label: "Connection 2", value: 1 },
+    ];
   }
   constructor(
     private route: ActivatedRoute,
@@ -60,10 +71,6 @@ export class PublishComponent implements OnInit {
 
   activeIndex: number = 0;
   scrollableTabs: any[] = Array.from({ length: 3 }, (_, i) => ({ title: `Tab ${i + 1}`, content: "Content" }));
-
-  addPublisher() {
-    this.router.navigateByUrl('edit-publisher');
-  }
 
   private curSubscription: Subscription | undefined;
   connection = {
@@ -146,4 +153,5 @@ export class PublishComponent implements OnInit {
       console.log('Disconnect failed', error.toString());
     }
   }
+
 }
