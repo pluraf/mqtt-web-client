@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { FormsModule } from '@angular/forms';
 import { MenubarModule } from 'primeng/menubar';
@@ -12,5 +12,11 @@ import { MenubarModule } from 'primeng/menubar';
 })
 export class MessagesComponent {
   topic = "";
+
+  filter = 'All';
+
+  setFilter(newFilter: string) {
+    this.filter = newFilter;
+  }
 
 }

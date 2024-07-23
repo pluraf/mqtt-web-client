@@ -35,14 +35,6 @@ export class ConnectionsComponent {
   ];
   hideButtons: boolean = false;
 
-
-  filter = 'All';
-
-
-  setFilter(newFilter: string) {
-    this.filter = newFilter;
-  }
-
   @Output() changeComponent = new EventEmitter<boolean>();
   @Output() changeSetting = new EventEmitter<string>();
   newConnection() {

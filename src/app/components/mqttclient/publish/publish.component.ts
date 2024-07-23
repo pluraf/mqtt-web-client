@@ -44,10 +44,14 @@ export class PublishComponent implements OnInit {
   connectionList: ConnectionList[] | undefined;
   selectedConnection: ConnectionList | undefined;
   hideElements: boolean = false;
+  activeIndex: number = 0;
+  scrollableTabs: any[] = Array.from({ length: 3 }, (_, i) => ({ title: `Tab ${i + 1}`, content: "Content" }));
 
   onClick(): void {
     console.log('Button clicked');
     this.hideElements = true;
+    this.scrollableTabs.unshift({ title: 'New', content: 'New Content' });
+    this.activeIndex = 0;
   }
 
   ngOnInit() {
@@ -69,8 +73,8 @@ export class PublishComponent implements OnInit {
 
   }
 
-  activeIndex: number = 0;
-  scrollableTabs: any[] = Array.from({ length: 3 }, (_, i) => ({ title: `Tab ${i + 1}`, content: "Content" }));
+  /*  activeIndex: number = 0;
+   scrollableTabs: any[] = Array.from({ length: 3 }, (_, i) => ({ title: `Tab ${i + 1}`, content: "Content" })); */
 
   private curSubscription: Subscription | undefined;
   connection = {

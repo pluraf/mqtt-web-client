@@ -1,6 +1,5 @@
 .container {
-    margin: 40px;
-    
+    margin: 40px;    
 }
 
 .colmessage {
@@ -17,3 +16,8 @@ p-splitter .connection-info {
   
 }
 
+@media screen and (min-width: 780px) {
+    p-splitter{      
+      width: 80%;
+    }
+  }

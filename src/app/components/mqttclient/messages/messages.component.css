@@ -17,3 +17,10 @@ a {
     flex: 1;
     text-align: right;
 }
+
+@media screen and (max-width: 780px) {
+    .messages-container{      
+     /*  width: 30%; */
+      flex-basis: 100%;
+    }
+  }

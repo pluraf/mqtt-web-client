@@ -9,5 +9,4 @@ export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'client', component: MQTTClientComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'newConnection', component: SettingsComponent },
 ];

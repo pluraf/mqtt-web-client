@@ -1,3 +1,13 @@
+
+.plus-btn {
+   
+    left: 20px;
+    top: 13px;
+    min-width: 45px;
+    height: 45px;
+    font-size: 30px;
+    background-color: #F6FA2C;
+}
 button {
     background-color: #F4F4F4;
     color: black;
@@ -6,17 +16,6 @@ button {
     height: 30px;
     border-radius: 0
 }
-
-.plus-btn {
-    position: relative;
-    left: 20px;
-    top: 13px;
-    min-width: 45px;
-    height: 45px;
-    font-size: 30px;
-    background-color: #F6FA2C;
-}
-
 .edit-btn,
 .delete-btn {
     background-color: black;
@@ -29,7 +28,6 @@ button {
 
 .publish-sec {
     border: black solid 1px;
-    width: 100%
 }
 
 .controll-wrap, .tab-name, .connection-list {
@@ -80,10 +78,6 @@ textarea {
     }
 }
 
-.tabs {
-    position: absolute;
- }
-
 :host ::ng-deep .custom-dd .p-dropdown { 
     width: 400px; 
     margin-left: 10px;
@@ -93,4 +87,11 @@ textarea {
     margin-right: 50px;
     height: 30px;
     width: 500px
+}
+
+@media screen {
+    .controll-wrap, .tab-name, .connection-list {
+        flex-basis: 100%;
+    }
+    
 }

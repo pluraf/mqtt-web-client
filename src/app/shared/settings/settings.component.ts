@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { ConnectionsComponent } from '../../components/mqttclient/connections/connections.component';
+import { RouterModule } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-settings',
   standalone: true,
-  imports: [FormsModule, CommonModule, ButtonModule, InputTextModule, ConnectionsComponent],
+  imports: [FormsModule, CommonModule, ButtonModule, InputTextModule, ConnectionsComponent, RouterModule],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.css'
 })
@@ -38,5 +40,11 @@ export class SettingsComponent {
   settingMessage() {
     console.log("hello")
   }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router) { }
 
+  onClick() {
+    window.location.reload();
+  }
 }

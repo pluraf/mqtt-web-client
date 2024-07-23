@@ -1,6 +1,6 @@
 <div class="new-connection new-subscription">
-    <button pButton type="button" label="New Connection" (click)="newConnection()"></button>
-    <button pButton type="button" label="New Subscription" (click)="newSubscription()"></button>
+    <button *ngIf="!hideButtons" pButton type="button" label="New Connection" (click)="newConnection()"></button>
+    <button *ngIf="!hideButtons" pButton type="button" label="New Subscription" (click)="newSubscription()"></button>
 </div>
 <div class="container">
     <div class="connection-sec" *ngFor="let connection of connections">
