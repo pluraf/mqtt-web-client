@@ -18,9 +18,9 @@ a {
     text-align: right;
 }
 
-@media screen and (max-width: 780px) {
+/* @media screen and (max-width: 780px) {
     .messages-container{      
      /*  width: 30%; */
-      flex-basis: 100%;
+    /*  flex-basis: 100%;
     }
-  }
+  } */

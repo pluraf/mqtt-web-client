@@ -1,12 +1,12 @@
 import { Component, HostListener } from '@angular/core';
-import { InputTextareaModule } from 'primeng/inputtextarea';
 import { FormsModule } from '@angular/forms';
-import { MenubarModule } from 'primeng/menubar';
+import { ImportsModule } from '../../../shared/primengImports';
+
 
 @Component({
   selector: 'app-messages',
   standalone: true,
-  imports: [InputTextareaModule, FormsModule, MenubarModule],
+  imports: [FormsModule, ImportsModule],
   templateUrl: './messages.component.html',
   styleUrl: './messages.component.css'
 })

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { MenubarModule } from 'primeng/menubar';
 
 export class BrokerStat {
   incomingRate: number = 0;
@@ -18,7 +19,7 @@ export class BrokerStat {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive, MenubarModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

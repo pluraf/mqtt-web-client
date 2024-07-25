@@ -1,7 +1,7 @@
 .setting-container {
-    display: flex;
-    justify-content: space-between;
+    display: flex;   
     align-items: center;
+    justify-content: center;
     margin-bottom: 30px;
 }
 
@@ -9,11 +9,11 @@
     flex: 1;
 }
 
-.submit-btns {
+/* .submit-btns {
     flex: 1;
     text-align: right;
    
-}
+} */
 
 
 .back-btn {
@@ -38,12 +38,13 @@
     margin-bottom: 20px;
 }
 
-.input-container {
+/* .input-container {
     display: inline-block;
-}
+} */
 
 input {
     margin: 20px;
+    width: 40%
 
 }
 

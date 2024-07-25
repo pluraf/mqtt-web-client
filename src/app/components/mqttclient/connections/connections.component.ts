@@ -1,25 +1,16 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ButtonModule } from 'primeng/button';
-import { CheckboxModule } from 'primeng/checkbox';
-import { FormsModule } from '@angular/forms';
-import { SplitterModule } from 'primeng/splitter';
 import { RouterModule } from '@angular/router';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import { SettingsComponent } from '../../../shared/settings/settings.component';
+import { ImportsModule } from '../../../shared/primengImports';
 
-
-interface PublishTab {
-  topic: string;
-  qos: number;
-  retain: boolean;
-  message: string;
-}
 
 @Component({
   selector: 'app-connections',
   standalone: true,
-  imports: [CommonModule, FormsModule, ButtonModule, CheckboxModule, SplitterModule, RouterModule, SettingsComponent],
+  imports: [CommonModule, FormsModule, ImportsModule, RouterModule, SettingsComponent],
   templateUrl: './connections.component.html',
   styleUrl: './connections.component.css'
 })

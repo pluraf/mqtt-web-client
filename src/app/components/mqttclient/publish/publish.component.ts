@@ -1,22 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ButtonModule } from 'primeng/button';
-import { InputTextareaModule } from 'primeng/inputtextarea';
-import { TabViewModule } from 'primeng/tabview';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { DropdownModule } from 'primeng/dropdown';
-
+import { Router, ActivatedRoute } from '@angular/router';
 import { Injector } from '@angular/core';
-import {
-  IMqttMessage,
-  IMqttServiceOptions,
-  MqttService,
-  IPublishOptions,
-} from 'ngx-mqtt';
+import { IMqttMessage, IMqttServiceOptions, MqttService, IPublishOptions } from 'ngx-mqtt';
 import { Subscription } from 'rxjs';
 import { MqttConfigModule } from '../../../mqttconfig/mqttconfig.module';
+import { ImportsModule } from '../../../shared/primengImports';
 
 interface QoSList {
   label: string;
@@ -29,14 +20,13 @@ interface ConnectionList {
 @Component({
   selector: 'app-publish',
   standalone: true,
-  imports: [FormsModule, InputTextareaModule, ButtonModule, TabViewModule, CommonModule, RouterModule, MqttConfigModule, DropdownModule],
+  imports: [FormsModule, CommonModule, RouterModule, MqttConfigModule, ImportsModule],
   templateUrl: './publish.component.html',
   styleUrl: './publish.component.css'
 })
 export class PublishComponent implements OnInit {
   private _mqttService!: MqttService;
   client: MqttService | undefined;
-
   qosList: QoSList[] | undefined;
   selectedQoS: QoSList | undefined;
   showPublishInfo: string = "";
@@ -72,9 +62,6 @@ export class PublishComponent implements OnInit {
   ) {
 
   }
-
-  /*  activeIndex: number = 0;
-   scrollableTabs: any[] = Array.from({ length: 3 }, (_, i) => ({ title: `Tab ${i + 1}`, content: "Content" })); */
 
   private curSubscription: Subscription | undefined;
   connection = {

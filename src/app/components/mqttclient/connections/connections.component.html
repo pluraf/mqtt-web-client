@@ -5,16 +5,16 @@
 <div class="container">
     <div class="connection-sec" *ngFor="let connection of connections">
         <div class="connection">
-            <span  class="conn">{{ connection.name }}</span>
-            <button *ngIf="!hideButtons" pButton type="button" (click)="newConnection()">Edit</button>
-            <button *ngIf="!hideButtons" pButton type="button" (click)="deleteConnection(connection)">Del</button>
+            <span class="conn">{{ connection.name }}</span>
+            <i *ngIf="!hideButtons" class="pi pi-pencil" pTooltip="Edit Connection" tooltipPosition="bottom" p-tooltip-text (click)="newConnection()"></i>
+            <i *ngIf="!hideButtons" class="pi pi-trash" pTooltip="Delete Connection" tooltipPosition="bottom" (click)="deleteConnection(connection)"></i>
         </div>
         <div *ngFor="let subscription of connection.subscriptions" class="subscription ">
             <p-checkbox name="group2" value="subscription" [value]="subscription" class="chkbox"
                 [(ngModel)]="subscription.enabled"></p-checkbox>
             <span>{{ subscription.name }}</span>
-            <button *ngIf="!hideButtons" pButton type="button" (click)="editSubscription(subscription)">Edit</button>
-            <button *ngIf="!hideButtons" pButton type="button" (click)="deleteSubscription(subscription)">Del</button>
+            <i *ngIf="!hideButtons" class="pi pi-pen-to-square" pTooltip="Edit Subscription" tooltipPosition="bottom" (click)="editSubscription(subscription)"></i>
+            <i *ngIf="!hideButtons" class="pi pi-trash" pTooltip="Delete Subscription" tooltipPosition="bottom" (click)="deleteSubscription(subscription)"></i>
         </div>
     </div>
 </div>

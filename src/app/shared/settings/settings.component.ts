@@ -1,16 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ButtonModule } from 'primeng/button';
-import { InputTextModule } from 'primeng/inputtext';
 import { ConnectionsComponent } from '../../components/mqttclient/connections/connections.component';
 import { RouterModule } from '@angular/router';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ImportsModule } from '../primengImports';
 
 @Component({
   selector: 'app-settings',
   standalone: true,
-  imports: [FormsModule, CommonModule, ButtonModule, InputTextModule, ConnectionsComponent, RouterModule],
+  imports: [FormsModule, CommonModule, ImportsModule, ConnectionsComponent, RouterModule],
   templateUrl: './settings.component.html',
   styleUrl: './settings.component.css'
 })
@@ -47,4 +46,5 @@ export class SettingsComponent {
   onClick() {
     window.location.reload();
   }
+  onSave() { }
 }

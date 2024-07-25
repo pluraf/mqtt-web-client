@@ -1,11 +1,11 @@
 
         <div class="setting-container">
             <div class="sub-setting">
-                <p ></p>
+                <p>Connection 1 Setting</p>
             </div>
             <div class="submit-btns">
                 <button class="back-btn" pButton type="button" label="Back" (click)="onClick()"></button>
-                <button class="save-btn" pButton type="button" label="Save" ></button>
+                <button class="save-btn" pButton type="button" label="Save" (click)="onSave()"></button>
             </div>
         </div>
         <div *ngFor="let section of sections" class="section">
