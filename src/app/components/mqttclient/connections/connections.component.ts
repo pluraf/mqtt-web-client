@@ -28,18 +28,17 @@ export class ConnectionsComponent {
 
   @Output() changeComponent = new EventEmitter<boolean>();
   @Output() changeSetting = new EventEmitter<string>();
+
   newConnection() {
     this.hideButtons = true;
     this.changeComponent.emit(true);
-    this.changeSetting.emit("Connection 1 Settings");
+    this.changeSetting.emit("Connection 1");
   }
 
   newSubscription() {
     this.hideButtons = true;
     this.changeComponent.emit(true);
-    /* const subscription = this.connections[connectionIndex].subscriptions[subscriptionIndex];
-    this.changeSetting.emit(`${subscription.name} Settings`); */
-    this.changeSetting.emit("Subscription 1 Settings")
+    this.changeSetting.emit("Subscription 1")
   }
 
   deleteConnection(connection: any) {
@@ -48,7 +47,7 @@ export class ConnectionsComponent {
   toggleSubscription(subscription: any) {
     subscription.enabled = !subscription.enabled;
   }
-
+  editConnection() { }
   editSubscription(subscription: any) {
   }
 

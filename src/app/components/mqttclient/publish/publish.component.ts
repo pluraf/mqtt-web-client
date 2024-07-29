@@ -29,8 +29,6 @@ export class PublishComponent implements OnInit {
   client: MqttService | undefined;
   qosList: QoSList[] | undefined;
   selectedQoS: QoSList | undefined;
-  showPublishInfo: string = "";
-  showTopic: string = "";
   connectionList: ConnectionList[] | undefined;
   selectedConnection: ConnectionList | undefined;
   hideElements: boolean = false;
@@ -42,25 +40,6 @@ export class PublishComponent implements OnInit {
     this.hideElements = true;
     this.scrollableTabs.unshift({ title: 'New', content: 'New Content' });
     this.activeIndex = 0;
-  }
-
-  ngOnInit() {
-    this.qosList = [
-      { label: "QoS: 0", value: 0 },
-      { label: "QoS: 1", value: 1 },
-      { label: "QoS: 2", value: 2 },
-    ];
-    this.connectionList = [
-      { label: "Connection 1", value: 0 },
-      { label: "Connection 2", value: 1 },
-    ];
-  }
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private injector: Injector
-  ) {
-
   }
 
   private curSubscription: Subscription | undefined;
@@ -77,6 +56,28 @@ export class PublishComponent implements OnInit {
     password: 'emqx_test',
     protocol: 'ws',
   };
+
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private injector: Injector,
+    private mqttService: MqttService
+  ) {
+    this.client = this.mqttService;
+  }
+  ngOnInit() {
+    this.qosList = [
+      { label: "QoS: 0", value: 0 },
+      { label: "QoS: 1", value: 1 },
+      { label: "QoS: 2", value: 2 },
+    ];
+    this.connectionList = [
+      { label: "Connection 1", value: 0 },
+      { label: "Connection 2", value: 1 },
+    ];
+    this.createConnection();
+  }
+
   subscription = {
     topic: 'topic/mqttx',
     qos: 0,
@@ -85,7 +86,7 @@ export class PublishComponent implements OnInit {
   publish = {
     topic: 'topic/browser',
     qos: 0,
-    payload: 'Hello, I am browser.',
+    payload: '',
   };
   receiveNews = '';
 
@@ -129,9 +130,9 @@ export class PublishComponent implements OnInit {
     const { topic, qos, payload } = this.publish;
 
     console.log(this.publish);
-    this.client?.unsafePublish(topic, payload, { qos } as IPublishOptions);
-    this.showPublishInfo = `QoS: ${qos},  Payload: '${payload}'`
-    this.showTopic = topic;
+    this.client?.unsafePublish(topic, payload, { retain: true } as IPublishOptions);
+    /* this.showPublishInfo = `QoS: ${qos},  Payload: '${payload}'`
+    this.showTopic = topic; */
 
   }
 

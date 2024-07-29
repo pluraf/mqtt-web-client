@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ConnectionsComponent } from '../../components/mqttclient/connections/connections.component';
 import { RouterModule } from '@angular/router';
@@ -35,10 +35,7 @@ export class SettingsComponent {
     }
   ];
 
-  changeSetting: string = ""
-  settingMessage() {
-    console.log("hello")
-  }
+  @Input() settingText: string = '';
   constructor(
     private route: ActivatedRoute,
     private router: Router) { }

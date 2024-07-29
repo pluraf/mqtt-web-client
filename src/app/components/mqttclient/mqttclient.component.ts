@@ -15,8 +15,11 @@ import { ImportsModule } from '../../shared/primengImports';
 })
 export class MQTTClientComponent {
   changeComponent: boolean = false;
-
+  settingText: string = '';
   onComponentChange(event: boolean) {
     this.changeComponent = event;
+  }
+  onSettingChange(setting: string) {
+    this.settingText = setting;
   }
 }

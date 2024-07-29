@@ -1,26 +1,19 @@
 a {
-    margin-left: 10px;
-    text-decoration: none;
+  margin-left: 10px;
 }
 
 .messages-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .message {
-    flex: 1;
+  flex: 1;
 }
 
 .filter {
-    flex: 1;
-    text-align: right;
+  flex: 1;
+  text-align: right;
+  margin-right: 20px;
 }
-
-/* @media screen and (max-width: 780px) {
-    .messages-container{      
-     /*  width: 30%; */
-    /*  flex-basis: 100%;
-    }
-  } */

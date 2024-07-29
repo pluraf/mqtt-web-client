@@ -1,12 +1,12 @@
 <div class="new-connection new-subscription">
-    <button *ngIf="!hideButtons" pButton type="button" label="New Connection" (click)="newConnection()"></button>
+    <button *ngIf="!hideButtons" pButton type="button" label="New Connection"  (click)="newConnection()"></button>
     <button *ngIf="!hideButtons" pButton type="button" label="New Subscription" (click)="newSubscription()"></button>
 </div>
 <div class="container">
     <div class="connection-sec" *ngFor="let connection of connections">
         <div class="connection">
             <span class="conn">{{ connection.name }}</span>
-            <i *ngIf="!hideButtons" class="pi pi-pencil" pTooltip="Edit Connection" tooltipPosition="bottom" p-tooltip-text (click)="newConnection()"></i>
+            <i href="#" *ngIf="!hideButtons" class="pi pi-pencil" pTooltip="Edit Connection" tooltipPosition="bottom" p-tooltip-text (click)="editConnection()"></i>
             <i *ngIf="!hideButtons" class="pi pi-trash" pTooltip="Delete Connection" tooltipPosition="bottom" (click)="deleteConnection(connection)"></i>
         </div>
         <div *ngFor="let subscription of connection.subscriptions" class="subscription ">

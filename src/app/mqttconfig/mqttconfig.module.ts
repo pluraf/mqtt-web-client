@@ -7,7 +7,7 @@ const MQTT_SERVICE_OPTIONS: IMqttServiceOptions = {
   hostname: 'broker.emqx.io',
   port: 8083,
   protocol: 'ws',
-  path: '',
+  path: '/mqtt',
 };
 
 @NgModule({

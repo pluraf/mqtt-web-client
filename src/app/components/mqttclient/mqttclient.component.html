@@ -1,26 +1,40 @@
 <div class="container">
-  <p-splitter [panelSizes]="[28, 72]" [minSizes]="[10,0]" [style]="{ height: '1000px' }">
-      <ng-template  pTemplate>
-          <div class="col">
-              <app-connections (changeComponent)="onComponentChange($event)"></app-connections>
+  <p-splitter
+    [panelSizes]="[28, 72]"
+    [minSizes]="[0, 20]"
+    [style]="{ height: '1000px' }"
+  >
+    <ng-template pTemplate>
+      <div class="col">
+        <app-connections
+          (changeComponent)="onComponentChange($event)"
+          (changeSetting)="onSettingChange($event)"
+        ></app-connections>
+      </div>
+    </ng-template>
+    <ng-template pTemplate>
+      <div class="col">
+        <app-settings
+          *ngIf="changeComponent"
+          [settingText]="settingText"
+        ></app-settings>
+      </div>
+      <p-splitter
+        *ngIf="!changeComponent"
+        class="connection-info"
+        layout="vertical"
+      >
+        <ng-template pTemplate>
+          <div class="col flex">
+            <app-messages></app-messages>
           </div>
-      </ng-template>
-      <ng-template pTemplate>
-          <div class=" col">
-            <app-settings *ngIf="changeComponent" ></app-settings>
+        </ng-template>
+        <ng-template pTemplate>
+          <div class="col flex">
+            <app-publish> </app-publish>
           </div>
-              <p-splitter *ngIf="!changeComponent"  class="connection-info" layout="vertical">
-                  <ng-template pTemplate>
-                      <div class="col flex ">                        
-                          <app-messages></app-messages>                         
-                      </div>
-                  </ng-template>
-                  <ng-template pTemplate>
-                      <div class="col flex " >
-                          <app-publish> </app-publish>
-                      </div>
-                  </ng-template>
-              </p-splitter>          
-      </ng-template>
+        </ng-template>
+      </p-splitter>
+    </ng-template>
   </p-splitter>
 </div>

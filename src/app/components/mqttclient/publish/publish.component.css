@@ -1,97 +1,101 @@
-
 .plus-btn {
-   
-    left: 20px;
-    top: 13px;
-    min-width: 45px;
-    height: 45px;
-    font-size: 30px;
-    background-color: #F6FA2C;
+  position: absolute;
+  /*  bottom: 80px;
+  left: 390px; */
+  min-width: 45px;
+  height: 45px;
+  font-size: 30px;
+  background-color: #f6fa2c;
+  z-index: 1;
 }
 button {
-    background-color: #F4F4F4;
-    color: black;
-    margin-right: 15px;
-    border-color: black;
-    height: 30px;
-    border-radius: 0
+  background-color: #f4f4f4;
+  color: black;
+  margin-right: 15px;
+  border-color: black;
+  height: 30px;
+  border-radius: 0;
 }
 .edit-btn,
 .delete-btn {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 .publish-btn {
-    background-color: #1CA4F1;
+  background-color: #1ca4f1;
 }
 
 .publish-sec {
-    border: black solid 1px;
+  border: black solid 1px;
 }
 
-.controll-wrap, .tab-name, .connection-list {
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
+.controll-wrap,
+.tab-name,
+.connection-list {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
-.controll-wrap input[type=text] {
-    margin-left: 55px;
-    margin-right: 50px;
-    height: 30px;
-    width: 500px
+.controll-wrap input[type="text"] {
+  margin-left: 55px;
+  margin-right: 50px;
+  height: 30px;
+  width: 500px;
 }
 
 .qos-btn {
-    margin-left: 10px;
-    margin-bottom: 10px;
-    margin-top: 20px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 :host {
-    ::ng-deep .p-dropdown {
-        margin-right: 15px;
-        border-color: black;
-        height: 30px;
-        border-radius: 0;
-    }
+  ::ng-deep .p-dropdown {
+    margin-right: 15px;
+    border-color: black;
+    height: 30px;
+    border-radius: 0;
+  }
 }
 
 :host {
-    ::ng-deep .p-dropdown .p-dropdown-label {
-        line-height: .2rem;
-        color: black
-    }
+  ::ng-deep .p-dropdown .p-dropdown-label {
+    line-height: 0.2rem;
+    color: black;
+  }
 }
 
 textarea {
-    margin: 10px
+  margin: 10px;
 }
 
 :host {
-    ::ng-deep .p-tabview-nav {
-        margin-left: 100px;
-    }
+  ::ng-deep .p-tabview-nav {
+    margin-left: 100px;
+  }
 }
 
-:host ::ng-deep .custom-dd .p-dropdown { 
-    width: 400px; 
-    margin-left: 10px;
+:host ::ng-deep .custom-dd .p-dropdown {
+  width: 400px;
+  margin-left: 10px;
 }
-.tab-name input[type=text] {
-    margin-left: 17px;
-    margin-right: 50px;
-    height: 30px;
-    width: 500px
+.tab-name input[type="text"] {
+  margin-left: 17px;
+  margin-right: 50px;
+  height: 30px;
+  width: 500px;
 }
 
-@media screen {
-    .controll-wrap, .tab-name, .connection-list {
-        flex-basis: 100%;
-    }
-    
+/* @media screen {
+  .controll-wrap,
+  .tab-name,
+  .connection-list {
+    flex-basis: 100%;
+  }
 }
+ */
