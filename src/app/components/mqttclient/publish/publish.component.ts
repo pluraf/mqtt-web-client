@@ -8,6 +8,7 @@ import { IMqttMessage, IMqttServiceOptions, MqttService, IPublishOptions } from 
 import { Subscription } from 'rxjs';
 import { MqttConfigModule } from '../../../mqttconfig/mqttconfig.module';
 import { ImportsModule } from '../../../shared/primengImports';
+import { v4 as uuidv4 } from 'uuid';
 
 interface QoSList {
   label: string;
@@ -75,6 +76,10 @@ export class PublishComponent implements OnInit {
       { label: "Connection 1", value: 0 },
       { label: "Connection 2", value: 1 },
     ];
+
+    //generating unique id for users
+    this.connection.clientId = `mqttx_${uuidv4()}`;
+    console.log(this.connection.clientId)
     this.createConnection();
   }
 
@@ -87,11 +92,13 @@ export class PublishComponent implements OnInit {
     topic: 'topic/browser',
     qos: 0,
     payload: '',
+    retain: false
   };
   receiveNews = '';
 
   isConnection = false;
   subscribeSuccess = false;
+  //retain: boolean = false;
 
   createConnection() {
     try {
@@ -125,12 +132,15 @@ export class PublishComponent implements OnInit {
     this.curSubscription?.unsubscribe();
     this.subscribeSuccess = false;
   }
+  onRetain() {
+    this.publish.retain = true
+  }
 
   doPublish() {
     const { topic, qos, payload } = this.publish;
 
     console.log(this.publish);
-    this.client?.unsafePublish(topic, payload, { retain: true } as IPublishOptions);
+    this.client?.unsafePublish(topic, payload, { qos, retain: true } as IPublishOptions);
     /* this.showPublishInfo = `QoS: ${qos},  Payload: '${payload}'`
     this.showTopic = topic; */
 
